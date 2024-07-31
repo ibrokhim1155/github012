@@ -1,4 +1,3 @@
-# models.py
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -48,7 +47,6 @@ class Comment(models.Model):
         return f'Comment by {self.user.username} on {self.product.name}'
 
     def save(self, *args, **kwargs):
-
         bad_words = ['ablah', 'befarosat', 'onasini_emsin']
         if any(bad_word in self.content.lower() for bad_word in bad_words):
             self.is_visible = False
